@@ -17,21 +17,20 @@ class GameController < ApplicationController
 
 
   def stake
-    hand.draw(deck, 2)
-    dealer.draw(deck, 2)
-    hand.stake=params[:sum].to_i
+      dealer.draw(deck, 2) if gamer.stake_sum(deck, 2, params[:sum].to_i)
   end
 
   def double_bet
-    hand.double_bet
+    gamer.double_bet
   end
 
   def take_card
-    hand.draw(deck, 1)
+    gamer.draw(deck, 1)
+    dealer.pass_cards unless gamer.status
   end
 
   def stay
-    dealer.end_round(deck, hand)
+    dealer.end_round(deck, gamer)
   end
 
 

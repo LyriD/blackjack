@@ -1,8 +1,8 @@
 <!-- простите за br-ы -->
-Статус: <%= hand.status %> (<%= hand.sum %>)<br>
-Мой баланс: <%= hand.balance %><br>
-Текущая ставка: <%= hand.stake %><br>
-Мои карты: <% hand.cards.each do |card| %>
+Статус: <%= gamer.status %> (<%= gamer.sum %>)<br>
+Мой баланс: <%= gamer.balance %><br>
+Текущая ставка: <%= gamer.stake %><br>
+Мои карты: <% gamer.cards.each do |card| %>
 <br>
     <%=card%>
 
@@ -10,7 +10,7 @@
     <br><br>
 
 
-<%= render (hand.cards.empty?)? 'bat' : 'game' %>
+<%= render (gamer.cards.empty?)? 'bat' : 'game' %>
 
 
 

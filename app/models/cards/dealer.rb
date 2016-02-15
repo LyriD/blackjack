@@ -13,9 +13,7 @@ module Cards
       @cards = []
     end
 
-    def ep
-
-    end
-
   end
 end
+
+#cards sum draw

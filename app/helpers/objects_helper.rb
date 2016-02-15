@@ -1,7 +1,7 @@
 module ObjectsHelper
 
-  def hand
-    session[:hand] ||= Cards::Hand.new
+  def gamer
+    session[:gamer] ||= Cards::Gamer.new
   end
 
   def dealer
