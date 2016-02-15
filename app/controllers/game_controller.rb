@@ -2,32 +2,14 @@ class GameController < ApplicationController
 
   GAME_METHODS = %w(stake take_card double_bet stay reset_session)
 
-  def blackjack
-
-
-  end
-
-
+  def blackjack; end
 
   def move
-
     send params[:method].to_sym if GAME_METHODS.include? params[:method]
-
-    render 'blackjack'
-
+    redirect_to root_path
   end
 
 
-  def card_to_hand
-
-
-    session[:hand].draw(session[:deck], 2)
-    session[:dealer].draw(session[:deck], 2)
-
-
-    render 'blackjack'
-
-  end
 
 
 
@@ -42,6 +24,14 @@ class GameController < ApplicationController
 
   def double_bet
     hand.double_bet
+  end
+
+  def take_card
+    hand.draw(deck, 1)
+  end
+
+  def stay
+    dealer.end_round(deck, hand)
   end
 
 

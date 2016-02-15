@@ -40,7 +40,8 @@ module Cards
 
     def loose
       @stake = 0
-      I18n.t 'hand.loose'
+      @cards = []
+      false
     end
 
     def sum
@@ -48,7 +49,7 @@ module Cards
     end
 
     def status
-      (sum > 21)? self.loose : I18n.t('hand.process')
+      (sum > 21)? self.loose : true
     end
 
     def sort!
@@ -61,6 +62,10 @@ module Cards
         @cards << deck.draw unless deck.empty?
       end
       self
+    end
+
+    def pass_cards
+      @cards = []
     end
 
     def each(&block)

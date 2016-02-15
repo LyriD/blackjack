@@ -1,0 +1,4 @@
+<%= form_tag move_path(:stake), method: :get do %>
+    <%= text_field_tag :sum, '', placeholder: 'сумма' %>
+    <%= submit_tag 'сделать ставку' %>
+<% end %>

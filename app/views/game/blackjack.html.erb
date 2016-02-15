@@ -1,23 +1,23 @@
 <!-- простите за br-ы -->
-Статус: <%= hand.status %><br>
+Статус: <%= hand.status %> (<%= hand.sum %>)<br>
 Мой баланс: <%= hand.balance %><br>
 Текущая ставка: <%= hand.stake %><br>
-Мои карты: <%= hand.cards.to_json %><br><br>
-<%= link_to 'удвоить ставку', move_path(:double_bet) %><br>
-<%= link_to 'взять карту', move_path(:take_card) %><br>
-<%= link_to 'остаться', move_path(:stay) %><br>
-<%= form_tag move_path(:stake), method: :get do %>
+Мои карты: <% hand.cards.each do |card| %>
+<br>
+    <%=card%>
 
-    <%= text_field_tag :sum, '', placeholder: 'сумма' %>
+    <% end %>
+    <br><br>
 
-    <%= submit_tag 'сделать ставку' %>
 
-<% end %>
+<%= render (hand.cards.empty?)? 'bat' : 'game' %>
 
 
 
 <br><br><br>
-Дилер: <%= dealer.cards.first %>
+Дилер: <%= dealer.cards.first %><br><br>
+c: <%= dealer.sum %><br><br>
+c: <%= dealer.cards.to_json %><br><br>
 
 
 <%= link_to 'Начать новую игру', move_path(:reset_session) %>

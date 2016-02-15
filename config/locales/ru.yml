@@ -20,6 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hand: "Игрок"
+  hand:
     loose: "Вы проиграли"
     process: "Ваш ход"

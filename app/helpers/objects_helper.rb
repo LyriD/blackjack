@@ -9,7 +9,7 @@ module ObjectsHelper
   end
 
   def deck
-    session[:deck] ||= session[:dealer].shuffle_deck Cards::Deck.new
+    session[:deck] ||= dealer.shuffle_deck Blackjack::Deck.new
   end
 
 end
