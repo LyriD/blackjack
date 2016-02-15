@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'game#blackjack'
 
+  get 'stake' => 'game#stake', as: :stake
+  get 'move/(:method)' => 'game#move', as: :move
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

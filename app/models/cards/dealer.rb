@@ -1,14 +1,15 @@
 
-module Cards::Dealer
-  extend self
+module Cards
+  class Dealer < Hand
 
-  def shuffle_deck(deck)
 
-    deck.cards.shuffle!
-    deck
+    def shuffle_deck(deck)
+
+      deck.cards.shuffle!
+      deck
+
+    end
+
 
   end
-
-
-
 end

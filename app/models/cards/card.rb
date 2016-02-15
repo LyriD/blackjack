@@ -8,7 +8,7 @@ module Cards
     end
 
     def to_s
-      "#{rank.to_s} of #{suit.to_s.capitalize}"
+      "#{suit.to_s.capitalize} - #{rank.to_s}"
     end
   end
 

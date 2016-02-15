@@ -46,3 +46,6 @@ group :development do
 end
 
 gem 'values'
+gem 'activerecord-session_store'
+
+# gem 'dalli'
