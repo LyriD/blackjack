@@ -21,5 +21,10 @@
 
 ru:
   hand:
-    loose: "Вы проиграли"
     process: "Ваш ход"
+  gamer:
+    loose: "Вы проиграли"
+    win: "Вы выиграли"
+    standoff: "Ничья"
+  deck:
+    empty: "Карты в колоде закончились"

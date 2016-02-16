@@ -1,24 +1,15 @@
-<!-- простите за br-ы -->
-Статус: <%= gamer.status %> (<%= gamer.sum %>)<br>
+<!-- простите за br-ы --><%= deck.cards.count %>
+Сумма кард в колоде: (<%= gamer.sum %>) <strong><%= flash[:notice] %></strong><br>
 Мой баланс: <%= gamer.balance %><br>
 Текущая ставка: <%= gamer.stake %><br>
-Мои карты: <% gamer.cards.each do |card| %>
-<br>
-    <%=card%>
-
-    <% end %>
-    <br><br>
-
+Мои карты: <% gamer.cards.each do |card| %><br><%=card%><% end %><br><br>
 
 <%= render (gamer.cards.empty?)? 'bat' : 'game' %>
-
-
 
 <br><br><br>
 Дилер: <%= dealer.cards.first %><br><br>
 c: <%= dealer.sum %><br><br>
 c: <%= dealer.cards.to_json %><br><br>
-
 
 <%= link_to 'Начать новую игру', move_path(:reset_session) %>
 

@@ -14,7 +14,11 @@ class GameController < ApplicationController
 
 
   def stake
-      dealer.draw(deck, 2) if gamer.stake_sum(deck, 2, params[:sum].to_i)
+      if deck.cards.count > 3
+        dealer.draw(deck, 2) if gamer.stake_sum(deck, 2, params[:sum].to_i)
+      else
+        flash[:notice] = I18n.t 'deck.empty'
+      end
   end
 
   def double_bet
@@ -23,11 +27,14 @@ class GameController < ApplicationController
 
   def take_card
     gamer.draw(deck, 1)
-    dealer.pass_cards unless gamer.status
+    if gamer.status == :loose
+      dealer.pass_cards
+      flash[:notice] = I18n.t 'gamer.loose'
+    end
   end
 
   def stay
-    dealer.end_round(deck, gamer)
+    flash[:notice] = I18n.t "gamer.#{dealer.end_round(deck, gamer)}"
   end
 
 

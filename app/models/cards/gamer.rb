@@ -24,20 +24,27 @@ module Cards
       @stake *= 2
     end
 
+    def standoff
+      @balance += @stake; @stake = 0
+      self.pass_cards
+      :standoff
+    end
 
     def win
       @balance += @stake*2
+      @stake = 0
       self.pass_cards
+      :win
     end
 
     def loose
       @stake = 0
       self.pass_cards
-      false
+      :loose
     end
 
     def status
-      (sum > 21)? self.loose : true
+      self.loose if sum > 21
     end
 
   end

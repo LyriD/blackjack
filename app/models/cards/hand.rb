@@ -29,7 +29,7 @@ module Cards
     def draw(deck, n = 1)
       n.times do
         @cards << deck.draw unless deck.empty?
-      end
+      end if deck.cards.count >= n
       self
     end
 
