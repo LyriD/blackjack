@@ -1,5 +1,3 @@
-require 'values'
-
 module Cards
 
   class Card < Value.new(:rank, :suit)
