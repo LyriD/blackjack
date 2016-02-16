@@ -10,9 +10,6 @@ class GameController < ApplicationController
   end
 
 
-
-
-
   private
 
 
