@@ -3,7 +3,7 @@ module Cards
   class Dealer < Hand
 
     def shuffle_deck(deck)
-      deck.cards.shuffle!
+      deck.cards.shuffle!.slice! 0, 36
       deck
     end
 
@@ -15,5 +15,3 @@ module Cards
 
   end
 end
-
-#cards sum draw
